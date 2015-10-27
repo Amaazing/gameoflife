@@ -1,0 +1,4 @@
+# gameoflife
+attempt at gameoflife
+
+:<
