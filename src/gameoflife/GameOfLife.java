@@ -1,9 +1,5 @@
 package gameoflife;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.swing.*;
-
 /**
  * Trying to implement the Game Of Life in java.
  *
@@ -19,23 +15,35 @@ public class GameOfLife {
      */
     public static void main(String[] args) throws InterruptedException {
 
-        Table table = new Table(3);
+        Table table = new Table(6);
 
-        table.put(101011101);
-
-        table.printTable();
-
-        ActionListener time = (ActionEvent awt) -> {
-            table.checkNeighbour();
-            System.out.println("\n");
-            table.printTable();
-        };
-
-        Timer t = new Timer(1000, time);
-        t.setRepeats(true);
-        t.start();
+        String random = "";
+        for(int i = 0; i < 9; i++){
+            int a = (int)(Math.random() * 100);
+            if(a % 2 == 0) random = random + "0";
+                    else random = random + "1";
+        }
         
-        Thread.sleep(10000);
+        table.put(Table.DEAD);
+        table.put(2, 2, 1);
+        table.put(3, 2, 1);
+        table.put(4, 2, 1);
+        table.put(1, 3, 1);
+        table.put(2, 3, 1);
+        table.put(3, 3, 1);
+        
+        boolean prev_frame = true;
+        boolean current_frame = true;
+        
+        while ((current_frame == table.isAlive()) && (prev_frame == table.isAlive())){
+            current_frame = table.isAlive();
+            table.printTable();
+            table.checkNeighbour();
+            prev_frame = current_frame;
+            current_frame = table.isAlive();
+            System.out.println("\n");
+            Thread.sleep(500);
+        }       
         
     }
 
