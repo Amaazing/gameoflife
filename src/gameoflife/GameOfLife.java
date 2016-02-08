@@ -15,22 +15,17 @@ public class GameOfLife {
      */
     public static void main(String[] args) throws InterruptedException {
 
-        Table table = new Table(6);
+        int size = 6;
+        Table table = new Table(size);
 
         String random = "";
-        for(int i = 0; i < 9; i++){
+        for(int i = 0; i < Math.pow(size, 2); i++){
             int a = (int)(Math.random() * 100);
             if(a % 2 == 0) random = random + "0";
                     else random = random + "1";
         }
         
-        table.put(Table.DEAD);
-        table.put(2, 2, 1);
-        table.put(3, 2, 1);
-        table.put(4, 2, 1);
-        table.put(1, 3, 1);
-        table.put(2, 3, 1);
-        table.put(3, 3, 1);
+        table.put(random);
         
         boolean prev_frame = true;
         boolean current_frame = true;

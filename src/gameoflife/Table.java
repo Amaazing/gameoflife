@@ -20,8 +20,8 @@ public class Table {
      *
      * @param size - dimension of the gird
      */
-    public Table(int size) {
-        this.size = size;
+    public Table(int _size) {
+        size = _size;
         table = new int[size][size];
         temp_table = new int[size][size];        
     }
@@ -62,9 +62,7 @@ public class Table {
      */
     public void put(String serial) {
         int[] s = stringToArray(serial);
-        if (s.length != Math.pow(table.length, 2)) {
-            // what if insert < 9 values
-        } else {
+        if (s.length == Math.pow(table.length, 2)) {
             int n = 0;
             for (int[] y : table) {
                 for (int x = 0; x < y.length; x++) {
@@ -72,6 +70,8 @@ public class Table {
                     y[x] = s[n - 1];
                 }
             }
+        } else {
+            // what if insert < 9 values           
         }
     }
     
