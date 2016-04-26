@@ -16,7 +16,7 @@ public class GameOfLife {
     public static void main(String[] args) throws InterruptedException {
 
         int size = 6;
-        Table table = new Table(size);
+        Table_old table = new Table_old(size);
 
         String random = "";
         for(int i = 0; i < Math.pow(size, 2); i++){
