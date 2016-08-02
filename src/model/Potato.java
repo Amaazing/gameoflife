@@ -1,15 +1,15 @@
-package gameoflife;
+package model;
 
-public class Potato extends CloneableValue {
+public class Potato implements Value {
     
     boolean mouldy = false;
     boolean baby = true;
     
     
-    public Potato(){}
+    public Potato(){};
     
     @Override
-    public int getValue() {
+    public int getState() {
         if (isMouldy()) return 0;
         if (isAdult()) return 3;
         if (isBaby()) return 2;
@@ -36,5 +36,20 @@ public class Potato extends CloneableValue {
     public boolean isAdult()    {return !baby;}
     
     public boolean isBaby()     {return baby;}
+
+    @Override
+    public void setState(int s) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getNextState() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void setNextState(int s) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

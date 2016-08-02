@@ -160,6 +160,19 @@ public abstract class Table <T extends CloneableValue> {
     public abstract boolean isDead();
 
     public boolean isAlive() {return !isDead();}
+    
+    public int[][] getTableArray(){
+        int [][] table_array = new int[size][size];
+        for (int i = 0; i < size; i++){
+            for (int j = 0; j < size; j++){
+                table_array[i][j] = table[i][j].isAlive() ? 1 : 0;
+            }
+        }
+        return table_array;
+    }
 
+    public int getSize(){
+        return size;
+    }
 
 }

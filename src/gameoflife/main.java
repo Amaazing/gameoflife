@@ -1,5 +1,7 @@
 package gameoflife;
 
+import model.*;
+
 /**
  * Trying to implement the Game Of Life in java.
  *
@@ -20,10 +22,9 @@ public class main {
         
         Potato[] potato_array = new Potato[size*size];
         for (Potato p : potato_array) p = new Potato();
-        for (int i = 0; i < potato_array.length; i++) {
+        for (int i = 0; i < potato_array.length; i++)
             potato_array[i] = new Potato();
-            
-        }
+        
         potato_array[2].setMouldy();
         
         table.put(potato_array);
