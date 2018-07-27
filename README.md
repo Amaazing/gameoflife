@@ -1,4 +1,2 @@
 # gameoflife
-attempt at gameoflife
-
-:<
+gameoflife java implementation 
